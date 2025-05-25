@@ -1,0 +1,143 @@
+import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native'
+import React from 'react'
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useRouter } from 'expo-router'
+
+const Login = () => {
+  const router=useRouter();
+  const onRegisterPress = () => {
+    router.navigate("/Register");
+  };
+  const onLogPress = () => {
+    router.navigate("/LoginCongratulations");
+  };
+
+  const onForgotPasswordPress = () => {
+    router.navigate("/ForgotPassword");
+  };
+  return (
+    <View>
+     
+      <Text style={styles.logintext}>Login to your account</Text>
+
+      <Text style={styles.labeltext}>Email</Text>
+      <TextInput 
+        style={styles.placeholder} 
+        placeholder="Write email here"
+      />
+
+      <Text style={styles.labeltext}>Password</Text>
+        <TextInput 
+          style={styles.placeholder} 
+          placeholder="Write password here"
+        />
+
+<TouchableOpacity onPress={onForgotPasswordPress}>
+        <Text style={styles.forgotpassword}>Forgot Password?</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={onLogPress}>
+        <Text style={styles.loginbuttontext}>Login</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.ortext}>or continue with</Text>
+
+      <View style={styles.socialcontainer}>
+        <TouchableOpacity>
+          <Icon name="google" size={30} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Icon name="facebook" size={30} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Icon name="apple" size={30} />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.dontregister}>
+        <Text style={styles.donttext}>Don't have an account?</Text>
+        <TouchableOpacity >
+          <Text style={styles.registertext} onPress={onRegisterPress}>Register</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+export default Login;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  logintext: {
+    fontSize: 22,
+    alignSelf: 'center',
+    marginTop: 150,
+    marginBottom: 40,
+    fontWeight: 'bold',
+  },
+  labeltext: {
+    fontSize: 14,
+    marginLeft: 26,
+    marginBottom: 3,
+    marginTop: 6,
+  },
+  placeholder: {
+    height: 40,
+    width: 310,
+    alignSelf: 'center',
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    paddingEnd: 34,
+  },
+  forgotpassword: {
+    fontSize: 11,
+    color: '#0c5d66',
+    alignSelf: 'flex-end',
+    marginRight: 26,
+    marginTop: 5,
+  },
+  button: {
+    height: 40,
+    width: 310,
+    alignSelf: 'center',
+    backgroundColor: '#0c5d66',
+    marginTop: 15,
+    borderRadius: 5,
+  },
+  loginbuttontext: {
+    fontSize: 15,
+    color: '#fff',
+    alignSelf: 'center',
+    paddingVertical: 8,
+  },
+  ortext: {
+    fontSize: 13,
+    alignSelf: 'center',
+    marginTop: 22,
+  },
+  socialcontainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 33,
+    marginTop: 30,
+  },
+  dontregister: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 40,
+  },
+  donttext: {
+    fontSize: 13,
+  },
+  registertext: {
+    fontSize: 13,
+    color: '#ff0000',
+    textDecorationLine: 'underline',
+  },
+});
