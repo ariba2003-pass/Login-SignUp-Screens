@@ -1,0 +1,81 @@
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+
+const WelcomePage = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.welcome}>Welcome!</Text>
+        <Text style={styles.chooseOption}>Choose one option to continue</Text>
+      </View>
+      
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.loginButton}>
+          <Text style={styles.loginButtonText}>Login</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.registerButton}>
+          <Text style={styles.registerButtonText}>Register</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+export default WelcomePage;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingVertical: 60,
+    paddingHorizontal: 20,
+    backgroundColor: '#fff',
+  },
+  textContainer: {
+    alignItems: 'center',
+    marginTop: 250,
+  },
+  welcome: {
+    fontSize: 39,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  chooseOption: {
+    fontSize: 16,
+    color: '#333',
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    marginBottom: 80,
+  },
+  loginButton: {
+    height: 43,
+    width: '100%',
+    maxWidth: 310,
+    backgroundColor: '#0c5d66',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  loginButtonText: {
+    fontSize: 18,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  registerButton: {
+    height: 43,
+    width: '100%',
+    maxWidth: 310,
+    backgroundColor: '#F34068',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  registerButtonText: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+});
