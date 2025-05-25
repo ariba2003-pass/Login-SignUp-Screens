@@ -1,0 +1,166 @@
+import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native'
+import React, { useState } from 'react'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const registerpage = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmpassword, setConfirmpassword] = useState('');
+  const [hidePassword, setHidePassword] = useState(true);
+  const [ischecked, setIschecked] = useState(false);
+
+  return (
+    <View>
+      
+      <Text style={styles.createaccounttext}>Create new account</Text>
+
+<Text style={styles.labeltext}>Full Name</Text>
+      <TextInput 
+        style={styles.placeholder} 
+        placeholder="Write name here"
+        value={name}
+        onChangeText={text => setName(text)}
+      />
+    
+      <Text style={styles.labeltext}>Email address</Text>
+        <TextInput 
+          style={styles.placeholder} 
+          placeholder="Write email here"
+          value={email}
+          onChangeText={text => setEmail(text)}
+          />
+      
+      <Text style={styles.labeltext}>Phone Number</Text>
+        <TextInput 
+          style={styles.placeholder} 
+          placeholder="Write phone number here"
+          value={phonenumber}
+          onChangeText={text => setPhonenumber(text)}
+          />
+      
+      <Text style={styles.labeltext}>Password</Text>
+      <View>
+        <TextInput 
+          style={styles.placeholder} 
+          placeholder="Write password here"
+          value={password}
+          onChangeText={text => setPassword(text)}
+          secureTextEntry={hidePassword}
+        />
+        <TouchableOpacity onPress={() => setHidePassword(!hidePassword)} style={styles.eyeIcon}>
+          <Icon name={hidePassword ? 'eye-slash' : 'eye'} size={18} color="#999" />
+        </TouchableOpacity>
+      </View>
+
+        <Text style={styles.labeltext}>Confirm Password</Text>
+      <View>
+        <TextInput 
+          style={styles.placeholder} 
+          placeholder="Write confirm password here"
+          value={confirmpassword}
+          onChangeText={text => setConfirmpassword(text)}
+          secureTextEntry={hidePassword}
+        />
+        <TouchableOpacity onPress={() => setHidePassword(!hidePassword)} style={styles.eyeIcon}>
+          <Icon name={hidePassword ? 'eye-slash' : 'eye'} size={18} color="#999" />
+        </TouchableOpacity>
+      </View> 
+      
+      <View>
+        <TouchableOpacity onPress={() => setIschecked(!ischecked)} style={styles.checksquare}>
+          <Icon name={ischecked ? 'check-square' : 'square'} size={16} color="#999" />
+        </TouchableOpacity>
+      <Text style={styles.iagree}>I agree with the terms of use</Text>
+        </View>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.registerbuttontext}>Register</Text>
+      </TouchableOpacity>
+
+      <View style={styles.alreadyaccountlogin}>
+        <Text style={styles.alreadyaccount}>Already have an account ?</Text>
+        <TouchableOpacity onPress={() => console.log('Go to Login screen')}>
+          <Text style={styles.logintextt}>Login</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+      
+export default registerpage;
+
+const styles = StyleSheet.create({
+container: {
+  flex: 1,
+  justifyContent: 'center',
+  padding: 20,
+},
+createaccounttext: {
+  fontSize: 24,
+  alignSelf: 'center',
+  marginTop: 48,
+  marginBottom: 30,
+  fontWeight: 'bold',
+},
+labeltext: {
+  fontSize: 16,
+  marginLeft: 18,
+  marginBottom: 7,
+  marginTop: 10,
+},
+placeholder: {
+  height: 44,
+  width: 327,
+  alignSelf: 'center',
+  borderColor: '#ccc',
+  borderWidth: 1,
+  borderRadius: 5,
+  paddingHorizontal: 10,
+  paddingEnd: 34,
+},
+eyeIcon: {
+  position: 'absolute',
+  right: 35,
+  top: 10,
+},
+button: {
+  height: 44,
+  width: 327,
+  alignSelf: 'center',
+  backgroundColor: '#F34068',
+  marginTop: 15,
+  borderRadius: 5,
+},
+registerbuttontext: {
+  fontSize: 20,
+  color: '#fff',
+  alignSelf: 'center',
+  paddingVertical: 6,
+  fontWeight: 'bold',
+},
+checksquare: {
+  position: 'absolute',
+left:20,
+marginTop: 5,
+},
+iagree: {
+  fontSize: 12,
+  marginTop: 5,
+  marginLeft: 40,
+},
+alreadyaccountlogin: {
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginTop: 15,
+},
+alreadyaccount: {
+  fontSize: 14,
+},
+logintextt: {
+  fontSize: 14,
+  color: '#0c5d66',
+  textDecorationLine: 'underline',
+},
+});
